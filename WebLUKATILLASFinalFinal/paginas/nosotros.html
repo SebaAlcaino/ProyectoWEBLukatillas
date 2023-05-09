@@ -2,29 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Sobre nosotros</title>
+  <title>Evento Tienda Lukatillas</title>
   <link rel="stylesheet" href="../css/estilo.css">
   <link rel="stylesheet" href="../img/logo.png">
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/estilos_nosotros.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a class="navbar-brand" href="../index.html" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="hombres.html">Hombres</a></li>
-        <li><a href="mujeres.html">Mujeres</a></li>
-        <li><a href="nosotros.html">Sobre nosotros</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- Hero section -->
-  <section class="hero">
-    <h1>Lukatillas</h1>
-    <p>Tu tienda de zapatillas favorita</p>
-  </section>
+    <header>
+      <nav>
+        <ul>
+          <li><a class="navbar-brand" href="../index.html" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./hombres.html">Hombres</a></li>
+          <li><a href="./mujeres.html">Mujeres</a></li>
+          <li><a href="./nosotros.html">Sobre nosotros</a></li>
+          <li><a href="./formulario2.html">Evento Lukatillas</a></li>
+          <li><a href="./paginaApi.html">Biblioteca Pokémon</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Hero section -->
+    <section class="hero">
+        <h1>Lukatillas</h1>
+        <p>Tu tienda de zapatillas favorita</p>
+      </section>
   <!-- About us section -->
   <section class="about-us">
     <h2>Sobre nosotros</h2>
@@ -32,63 +34,105 @@
     <p>Nuestro equipo está formado por apasionados del deporte y la moda, siempre dispuestos a asesorarte y ayudarte a encontrar el modelo perfecto para ti.</p>
     <p>Además, en Lukatillas nos preocupamos por el medio ambiente y la sostenibilidad, por lo que trabajamos con marcas que comparten nuestros valores y utilizan materiales y procesos eco-friendly en la producción de sus zapatillas.</p>
   </section>
-<!-- Form section -->
-<section class="form">
-  <h2 style="text-align: center;">Formulario de inscripción<br></h2>
-  <p style="text-align: center;">Inscríbete en nuestra página para recibir noticias<br><br></p>
-  <form id="myForm">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre"><br><br>
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email"><br><br>
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" name="telefono"><br><br>
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion"><br><br>
-    <label for="genero">Género:</label>
-    <input type="text" id="genero">    
-    <input type="radio" id="masculino" name="genero" value="masculino">
-    <label for="masculino">Masculino</label><br><br>
-    <input type="radio" id="femenino" name="genero" value="femenino">
-    <label for="femenino">Femenino</label>
-    <input type="submit" value="Enviar">
-  </form>
-</section>
+  <!-- Form section -->
+  <section class="form">
+    <h2 style="text-align: center;">Formulario de inscripción<br></h2>
+    <p style="text-align: center;">Inscríbete en nuestra página para recibir noticias<br><br></p>
+    <form id="myForm" onsubmit="return validarFormulario()">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre">
+      <span id="nombreError" class="campo-error"></span><br><br>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email">
+      <span id="emailError" class="campo-error"></span><br><br>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9,}" title="El teléfono debe tener al menos 9 dígitos">
+      <span id="telefonoError" class="campo-error"></span><br><br>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion">
+      <span id="direccionError" class="campo-error"></span><br><br>
+      <label for="genero">Género:</label>
+      <input type="radio" id="masculino" name="genero" value="masculino">
+      <label for="masculino">Masculino</label><br><br>
+      <input type="radio" id="femenino" name="genero" value="femenino">
+      <label for="femenino">Femenino</label>
+      <span id="generoError" class="campo-error"></span><br><br>
+      <input type="submit" value="Enviar">
+      </form>
+      <p id="warning" style="color: red; display: none;">Por favor, completa todos los campos del formulario.</p>
+      </section>
+      
+      <!-- Código del footer -->
+      <footer class="bg-dark text-white py-4">
+        <!-- Código del footer -->
+      </footer>
+      
+      <!-- Código del logo -->
+      <div id="logo-container">
+        <img src="../img/logo.png" alt="Logo de mi página web">
+      </div>
+      
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+      <!-- Script para el formulario -->
+      <script>
+      $(document).ready(function() {
+        $('#myForm').submit(function(event) {
+          event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+      
+          // Obtener los valores ingresados por el usuario
+          var nombre = $('#nombre').val();
+          var email = $('#email').val();
+          var telefono = $('#telefono').val();
+          var direccion = $('#direccion').val();
+          var genero = $('input[name="genero"]:checked').val();
+      
+          // Validar que los campos no estén vacíos
+          if (nombre.trim() === '') {
+            $('#nombreError').text('Campo obligatorio').show();
+          } else {
+            $('#nombreError').hide();
+          }
+      
+          if (email.trim() === '') {
+            $('#emailError').text('Campo obligatorio').show();
+          } else {
+            $('#emailError').hide();
+          }
+      
+          if (telefono.trim() === '') {
+            $('#telefonoError').text('Campo obligatorio').show();
+          } else {
+            $('#telefonoError').hide();
+          }
+      
+          if (direccion.trim() === '') {
+            $('#direccionError').text('Campo obligatorio').show();
+          } else {
+            $('#direccionError').hide();
+          }
+      
+          if (genero === undefined) {
+            $('#generoError').text('Campo obligatorio').show();
+          } else {
+            $('#generoError').hide();
+          }
+      
+          // Verificar si hay algún campo vacío
+          var camposVacios = $('.campo-error:visible').length > 0;
+      
+          if (camposVacios) {
+            $('#warning').show();
+            return false;
+          }
+      
 
-<!-- FOOTEEER -->
-<footer class="bg-dark text-white py-4">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-4">
-              <h5 class="mb-3">Información de contacto</h5>
-              <p><i class="fas fa-map-marker-alt"></i> 777 Avenida Los Pavos, Santiago</p>
-              <p><i class="fas fa-phone"></i> +56 9 33333333</p>
-              <p><i class="fas fa-envelope"></i> contacto@lukatillas.com</p>
-          </div>
-          <div class="col-md-4">
-              <h5 class="mb-3">Enlaces útiles</h5>
-              <ul class="list-unstyled">
-                  <li><a href="../index.html">Inicio</a></li>
-                  <li><a href="../paginas/hombres.html">Zapatillas para Hombres</a></li>
-                  <li><a href="../paginas/mujeres.html">Zapatillas para Mujeres</a></li>
-                  <li><a href="../paginas/ninos.html">Zapatillas para Niños</a></li>
-              </ul>
-          </div>
-          <div class="col-md-5">
-            <h5 class="mb-3">Síguenos</h5>
-            <ul>
-              <li>
-                <img src="../img/icons/email-icono.svg" alt="Icon 1">
-              </li>
-            </ul>                
-            </div>
-          </div>
-        </div>
-</footer>
-
-        <!-- logo -->
-        <div id="logo-container">
-          <img src="../img/logo.png" alt="Logo de mi página web">
-        </div>
-        </body>
-</html>
+          // Limpiar el formulario después de enviar los datos
+          $('#myForm')[0].reset();
+        });
+      });
+      </script>
+      </body>
+      </html>
+      

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Evento Tienda Lukatillas</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/estilo_formulario2.css">
+</head>
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><a class="navbar-brand" href="../index.html" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./hombres.html">Hombres</a></li>
+          <li><a href="./mujeres.html">Mujeres</a></li>
+          <li><a href="./ninos.html">Niños</a></li>
+          <li><a href="./nosotros.html">Sobre nosotros</a></li>
+          <li><a href="./paginaApi.html">Biblioteca Pokémon</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Hero section -->
+    <section class="hero">
+        <h1>Lukatillas</h1>
+        <p>Tu tienda de zapatillas favorita</p>
+      </section>
+<!-- About us section -->
+<section class="about-us">
+  <h2>Evento de nuestra página</h2>
+  <p>Para participar en nuestro emocionante evento de zapatillas, debes cumplir con los siguientes requisitos:</p>
+  <ul>
+    <li>-- Tener al menos 18 años de edad.</li>
+    <li>-- Rellenar el formulario de inscripción completo con tu nombre, correo electrónico, teléfono, dirección, género, talla de zapatilla, modelo y marca.</li>
+    <li>-- Aceptar los términos y condiciones del evento.</li>
+    <li>-- Seguir nuestra página en las redes sociales (opcional pero recomendado).</li>
+  </ul>
+  <p><br>Una vez que hayas cumplido con todos los requisitos anteriores, estarás oficialmente inscrito en nuestro evento y serás elegible para participar en sorteos y promociones exclusivas.</p>
+  <p>¡No pierdas la oportunidad de formar parte de este evento increíble! Esperamos verte pronto y que disfrutes de la experiencia de nuestro evento de zapatillas.</p>
+</section>
+  <!-- Form section -->
+  <section class="form">
+    <h2 style="text-align: center; text-transform: uppercase;">Formulario para participar<br><br></h2>
+    <p style="text-align: center;">Completa todos los campos para participar del sorteo y tendrás la posibilidad de ganar!!<br><br></p>
+    <form id="myForm" onsubmit="return validarFormulario()">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre">
+      <span style="font-weight: bold; color: red;" id="nombreError" class="campo-error"></span><br><br>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email">
+      <span style="font-weight: bold; color: red;" id="emailError" class="campo-error"></span><br><br>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9,}" title="El teléfono debe tener al menos 9 dígitos">
+      <span style="font-weight: bold; color: red;" id="telefonoError" class="campo-error"></span><br><br>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion">
+      <span style="font-weight: bold; color: red;" id="direccionError" class="campo-error"></span><br><br>
+      <label>Género:</label>
+      <input type="radio" id="masculino" name="genero" value="masculino">
+      <label for="masculino">Masculino</label>
+      <input type="radio" id="femenino" name="genero" value="femenino">
+      <label for="femenino">Femenino</label>
+      <span style="font-weight: bold; color: red;" id="generoError" class="campo-error"></span><br>
+      <label for="talla">Talla de zapatilla:</label>
+      <select id="talla" name="talla">
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+      </select>
+      <span style="font-weight: bold; color: red;" id="tallaError" class="campo-error"></span><br><br>
+      <label for="modelo">Modelo de zapatilla:</label>
+      <input type="text" id="modelo" name="modelo">
+      <span style="font-weight: bold; color: red;" id="modeloError" class="campo-error"></span><br><br>
+      <label for="marca">Marca de zapatilla:</label>
+      <input type="text" id="marca" name="marca">
+      <span style="font-weight: bold; color: red;" id="marcaError" class="campo-error"></span><br><br>
+
+      <input type="submit" value="Enviar">
+      </form>
+      <p id="warning" style="color: red; display: none; font-weight: bold;">Complete todos los campos del formulario</p>
+      </section>
+      <!-- Código del footer -->
+      <footer class="bg-dark text-white py-4">
+      </footer>
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- Script para el formulario -->
+      <script>
+      $(document).ready(function() {
+        $('#myForm').submit(function(event) {
+          event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+          // Obtener los valores ingresados por el usuario
+          var nombre = $('#nombre').val();
+          var email = $('#email').val();
+          var telefono = $('#telefono').val();
+          var direccion = $('#direccion').val();
+          var genero = $('input[name="genero"]:checked').val();
+          var talla = $('#talla').val();
+          var modelo = $('#modelo').val();
+          var marca = $('#marca').val();
+          // Validar que los campos no estén vacíos
+          if (nombre.trim() === '') {
+            $('#nombreError').text('Campo obligatorio').show();
+          } else {
+            $('#nombreError').hide();
+          }
+          if (email.trim() === '') {
+            $('#emailError').text('Campo obligatorio').show();
+          } else {
+            $('#emailError').hide();
+          }
+          if (telefono.trim() === '') {
+            $('#telefonoError').text('Campo obligatorio').show();
+          } else {
+            $('#telefonoError').hide();
+          }
+          if (direccion.trim() === '') {
+            $('#direccionError').text('Campo obligatorio').show();
+          } else {
+            $('#direccionError').hide();
+          }
+          if (genero === undefined) {
+            $('#generoError').text('Campo obligatorio').show();
+          } else {
+            $('#generoError').hide();
+          }
+          if (talla === '') {
+            $('#tallaError').text('Campo obligatorio').show();
+          } else {
+            $('#tallaError').hide();
+          }
+          if (modelo.trim() === '') {
+            $('#modeloError').text('Campo obligatorio').show();
+          } else {
+            $('#modeloError').hide();
+          }
+          if (marca.trim() === '') {
+            $('#marcaError').text('Campo obligatorio').show();
+          } else {
+            $('#marcaError').hide();
+          }
+          // Verificar si hay algún campo vacío
+          var camposVacios = $('.campo-error:visible').length > 0;
+          if (camposVacios) {
+            $('#warning').show();
+            return false;
+          }
+          // Realizar otras operaciones o enviar datos al servidor
+          // Limpiar el formulario después de enviar los datos
+          $('#myForm')[0].reset();
+        });
+      });
+      </script>
+      <!-- FOOTEEER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+              <h5 class="mb-3">Información de contacto</h5>
+              <p><i class="fas fa-map-marker-alt"></i> 777 Avenida Los Pavos, Santiago</p>
+              <p><i class="fas fa-phone"></i> +56 9 33333333</p>
+              <p><i class="fas fa-envelope"></i> contacto@lukatillas.com</p>
+          </div>
+          <div class="col-md-4">
+              <h5 class="mb-3">Enlaces útiles</h5>
+              <ul class="list-unstyled">
+                  <li><a href="../index.html">Inicio</a></li>
+                  <li><a href="../paginas/hombres.html">Zapatillas para Hombres</a></li>
+                  <li><a href="../paginas/mujeres.html">Zapatillas para Mujeres</a></li>
+                  <li><a href="../paginas/ninos.html">Zapatillas para Niños</a></li>
+              </ul>
+          </div>
+          <div class="col-md-5">
+            <h5 class="mb-3">Síguenos</h5>
+            </div>
+          </div>
+        </div>
+</footer>
+      </body>
+      </html>

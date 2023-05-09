@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Pokemones</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/api.js"></script>
+    <link rel="stylesheet" href="../css/paginaApi.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" style="font-weight: bold;" href="../index.html">Tienda Zapatillas Lukatillas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../paginas/hombres.html">Hombres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../paginas/mujeres.html">Mujeres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../paginas/ninos.html">Niños</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../paginas/nosotros.html">Sobre nosotros</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="../paginas/formulario2.html">Evento Tienda Lukatillas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Biblioteca de Pokemones</h2>
+                <div class="d-flex justify-content-center">
+                  <input type="text" id="inputPokemon" placeholder="Introduce el nombre/número del Pokémon" class="form-control mr-2" required>
+                    <button id="btnBuscarPokemon" class="btn btn-primary">Buscar Pokémon</button>
+                    <button id="btnBorrarPokemon" class="btn btn-danger">Borrar resultados</button>
+                </div>
+                <div id="pokemonData" class="my-4"></div>
+            </div>
+        </div>
+    </div>
+    <br><br><footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5 class="mb-3">Información de contacto</h5>
+            <p><i class="fas fa-map-marker-alt"></i> 777 Avenida Los Pavos, Santiago</p>
+            <p><i class="fas fa-phone"></i> +56 9 33333333</p>
+            <p><i class="fas fa-envelope"></i> contacto@lukatillas.com</p>
+          </div>
+          <div class="col-md-4">
+            <h5 class="mb-3">Enlaces útiles</h5>
+            <ul class="list-unstyled">
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="../paginas/hombres.html">Zapatillas para Hombres</a></li>
+              <li><a href="../paginas/mujeres.html">Zapatillas para Mujeres</a></li>
+              <li><a href="../paginas/ninos.html">Zapatillas para Niños</a></li>
+              <li><a href="../paginas/nosotros.html">Sobre nosotros</a></li>
+              <li><a href="../paginas/formulario2.html">Evento Lukatillas</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

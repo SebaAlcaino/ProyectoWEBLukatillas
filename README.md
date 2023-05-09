@@ -1,5 +1,5 @@
 # ProyectoWEBLukatillas
-Proyecto WEB 1 | DuocUC
+Proyecto WEB | DuocUC
 INTEGRANTES:
   Sebastián Alcaíno Ruz
   Lukas Otto Oñate

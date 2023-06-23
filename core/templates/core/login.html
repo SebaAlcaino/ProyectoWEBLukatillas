@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Lukatillas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{% static 'core/css/index.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="{% url 'hombres' %}">
+    <script src="{% static 'core/js/carousel.js'%}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'inicio' %}">Tienda Zapatillas Lukatillas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'hombres' %}">Hombres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mujeres' %}">Mujeres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'ninos' %}">Niños</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nosotros' %}">Sobre nosotros</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'formulario2' %}">Evento Tienda Lukatillas</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'paginaApi' %}">Biblioteca Pokemon</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class= "nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+            </li>
+            {% else %}
+            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+            {% endif %}
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+<!-- inicio de seion -->  
+<div id="registro" class="container">
+    <h1 class="display">Login</h1><br>
+    <form method="POST" id="formulario">
+        {% csrf_token %}
+
+
+        <div class="form-group">
+            <label for="username">Nombre de Usuario</label><br>
+            <input name="username" class="form-control" type="text"/>
+            <div class="bg-danger mt-1">{{ form.errors.username }}</div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input name="password" class="form-control" type="password"/>
+            <div class="bg-danger mt-1">{{ form.errors.password }}</div>
+        </div>
+
+
+        {% if form.non_field_errors %}
+        <div class="form-group">
+            <div class="bg-danger mt-1 p-2">Login incorrecto!</div>
+        </div>  
+        {% endif %}
+        
+        {{form.non_field_errors}}
+
+
+        <div class="form-group">
+            <input class="btn" type="submit" value="Enviar"/>
+        </div>
+        
+    </form>
+</div>
+
+
+<!-- FOOTEEER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+              <h5 class="mb-3">Información de contacto</h5>
+              <p><i class="fas fa-map-marker-alt"></i> 777 Avenida Los Pavos, Santiago</p>
+              <p><i class="fas fa-phone"></i> +56 9 33333333</p>
+              <p><i class="fas fa-envelope"></i> contacto@lukatillas.com</p>
+          </div>
+          <div class="col-md-4">
+              <h5 class="mb-3">Enlaces útiles</h5>
+              <ul class="list-unstyled">
+                  <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                  <li><a href="{% url 'hombres' %}">Zapatillas para Hombres</a></li>
+                  <li><a href="{% url 'mujeres' %}">Zapatillas para Mujeres</a></li>
+                  <li><a href="{% url 'nosotros' %}">Zapatillas para Niños</a></li>
+              </ul>
+          </div>
+          <div class="col-md-5">
+            <h5 class="mb-3">Síguenos</h5>
+            <ul>
+              <li>
+                <img src="{% static 'core/img/icons/email-icono.svg'%}
+                " alt="Icon 1">
+              </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+</footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

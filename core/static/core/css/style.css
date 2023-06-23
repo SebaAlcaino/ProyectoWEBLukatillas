@@ -1,0 +1,111 @@
+/* Default styles */
+.navbar {
+  background-color: #bc5454;
+}
+.navbar-brand {
+  color: #f2f2f2;
+}
+.nav-link {
+  color: #f2f2f2;
+}
+.nav-link:hover {
+  color: #ffa500;
+}
+.carousel-item img {
+  height: 500px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  color: #ffa500;
+}
+.carousel-indicators li {
+  background-color: #f2f2f2;
+}
+.carousel-indicators .active {
+  background-color: #ffa500;
+}
+.carousel img {
+  max-height: 500px;
+  max-width: 50%;
+}
+
+/* Center carousel horizontally */
+#carouselExampleIndicators {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center content within col-md-5 */
+.col-md-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.col-md-5 a {
+  margin: 0 10px;
+}
+.col-md-5 img {
+  height: 30px;
+  width: 30px;
+}
+
+/* Center and style list-inline */
+.list-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+.list-inline img {
+  margin-right: 10px;
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+  /* Adjust carousel height for smaller screens */
+  .carousel-item img {
+    height: 300px;
+  }
+
+  /* Reduce padding and margin of col-md-5 for smaller screens */
+  .col-md-5 {
+    padding: 0;
+    margin: 10px 0;
+  }
+  .col-md-5 a {
+    margin: 0 5px;
+  }
+
+  /* Adjust size of social media icons for smaller screens */
+  .col-md-5 img {
+    height: 20px;
+    width: 20px;
+  }
+
+  /* Adjust font size of navbar links for smaller screens */
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  /* Adjust carousel height for even smaller screens */
+  .carousel-item img {
+    height: 200px;
+  }
+
+  /* Adjust font size of navbar brand for smaller screens */
+  .navbar-brand {
+    font-size: 24px;
+  }
+
+  /* Adjust font size of navbar links for smaller screens */
+  .navbar-nav .nav-link {
+    font-size: 12px;
+  }
+}

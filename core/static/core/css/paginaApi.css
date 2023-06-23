@@ -1,0 +1,90 @@
+/* Estilos para el encabezado */
+header {
+    background-color: #ffcb05;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Estilos para el campo de búsqueda */
+  .search-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 2px solid #000;
+    margin: 20px 0;
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .search-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* Estilos para la sección de resultados */
+  .results {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Estilos para cada tarjeta de resultado */
+  .card {
+    background-color: #fff;
+    color: #000;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  /* Estilos para el contenedor de resultados */
+#pokemonData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+  /* Estilos para el nombre del Pokemon en cada tarjeta */
+  .card h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+  
+  /* Estilos para el tipo del Pokemon en cada tarjeta */
+  .card p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para hacer la página responsiva */
+  @media (max-width: 768px) {
+    .search-field {
+      font-size: 1rem;
+    }
+    .search-button {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+    .results {
+      margin-top: 50px;
+    }
+    .card {
+      width: 150px;
+      font-size: 0.8rem;
+    }
+  }
+  

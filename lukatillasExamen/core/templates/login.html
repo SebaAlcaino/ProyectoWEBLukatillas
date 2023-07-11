@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/estilos_nosotros.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a class="navbar-brand" href="{% url 'inicio' %}" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+        <li><a href="{% url 'hombres' %}">Hombres</a></li>
+        <li><a href="{% url 'mujeres' %}">Mujeres</a></li>
+        <li><a href="{% url 'ninos' %}">Niños</a></li>
+        <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
+        <li><a href="{% url 'formulario2' %}">Evento Lukatillas</a></li>
+        <li><a href="{% url 'paginaApi' %}">Biblioteca Pokémon</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="login" class="container">
+    <div style="text-align: center;">
+      <h1 class="display">Iniciar Sesión</h1><br>      
+      <form method="POST" id="formulario">
+          {% csrf_token %}
+
+          <div class="form-group">
+              <label for="username">Nombre de Usuario</label><br>
+              <input name="username" class="form-control" type="text"/>
+              <div class="bg-danger mt-1">{{ form.errors.username }}</div>
+          </div>
+
+          <div class="form-group">
+              <label for="password">Password</label><br>
+              <input name="password" class="form-control" type="password"/>
+              <div class="bg-danger mt-1">{{ form.errors.password }}</div>
+          </div>
+
+          {% if form.non_field_errors %}
+          <div class="form-group">
+              <div class="bg-danger mt-1 p-2">Login incorrecto!</div>
+          </div>  
+          {% endif %}
+          
+          {{form.non_field_errors}}
+
+          <div class="form-group">
+              <input class="btn" type="submit" value="Enviar"/>
+          </div>
+          <p>¿No tienes cuenta? <a href="{% url 'registrar' %}">Regístrate aquí</a></p>
+      </form>
+  </div>
+
+</body>
+</html>

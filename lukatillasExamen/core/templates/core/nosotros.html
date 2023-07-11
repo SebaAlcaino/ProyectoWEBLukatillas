@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre nosotros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/estilos_nosotros.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a class="navbar-brand" href="{% url 'inicio' %}" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+        <li><a href="{% url 'hombres' %}">Hombres</a></li>
+        <li><a href="{% url 'mujeres' %}">Mujeres</a></li>
+        <li><a href="{% url 'ninos' %}">Niños</a></li>
+        <li><a href="{% url 'formulario2' %}">Evento Lukatillas</a></li>
+        <li><a href="{% url 'paginaApi' %}">Biblioteca Pokémon</a></li>
+        <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero">
+    <h1>Lukatillas</h1>
+    <p>Tu tienda de zapatillas favorita</p>
+  </section>
+
+  <!-- About us section -->
+  <section class="about-us">
+    <h2>Sobre nosotros</h2>
+    <p>En Lukatillas somos una tienda especializada en zapatillas para todo tipo de deportes y actividades. Ofrecemos una gran variedad de modelos y marcas, desde los clásicos hasta los últimos lanzamientos en el mercado.</p>
+    <p>Nuestro equipo está formado por apasionados del deporte y la moda, siempre dispuestos a asesorarte y ayudarte a encontrar el modelo perfecto para ti.</p>
+    <p>Además, en Lukatillas nos preocupamos por el medio ambiente y la sostenibilidad, por lo que trabajamos con marcas que comparten nuestros valores y utilizan materiales y procesos eco-friendly en la producción de sus zapatillas.</p>
+  </section>
+
+  <!-- Form section -->
+  <section class="form">
+    <h2 style="text-align: center;">Formulario de inscripción<br></h2>
+    <p style="text-align: center;">Inscríbete en nuestra página para recibir noticias<br><br></p>
+    <form id="myForm" onsubmit="return validarFormulario()">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre">
+      <span id="nombreError" class="campo-error"></span><br><br>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email">
+      <span id="emailError" class="campo-error"></span><br><br>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9,}" title="El teléfono debe tener al menos 9 dígitos">
+      <span id="telefonoError" class="campo-error"></span><br><br>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion">
+      <span id="direccionError" class="campo-error"></span><br><br>
+      <label for="genero">Género:</label>
+      <input type="radio" id="masculino" name="genero" value="masculino">
+      <label for="masculino">Masculino</label><br><br>
+      <input type="radio" id="femenino" name="genero" value="femenino">
+      <label for="femenino">Femenino</label>
+      <span id="generoError" class="campo-error"></span><br><br>
+      <input type="submit" value="Enviar">
+    </form>
+    <p id="warning" style="color: red; display: none;">Por favor, completa todos los campos del formulario.</p>
+  </section>
+
+  <!-- Footer section -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5 class="mb-3">Información de contacto</h5>
+          <p><i class="fas fa-map-marker-alt"></i> 777 Avenida Los Pavos, Santiago</p>
+          <p><i class="fas fa-phone"></i> +56 9 33333333</p>
+          <p><i class="fas fa-envelope"></i> contacto@lukatillas.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5 class="mb-3">Enlaces útiles</h5>
+          <ul class="list-unstyled">
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'hombres' %}">Zapatillas para Hombres</a></li>
+            <li><a href="{% url 'mujeres' %}">Zapatillas para Mujeres</a></li>
+            <li><a href="{% url 'ninos' %}">Zapatillas para Niños</a></li>
+            <li><a href="{% url 'paginaApi' %}">Biblioteca Pokemon</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Logo section -->
+  <div id="logo-container">
+    <img src="{% static 'core/img/logo.png' %}" alt="Logo de mi página web">
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Script para el formulario -->
+  <script>
+    // Obtener el formulario por su ID
+    const form = document.getElementById("myForm");
+
+    // Obtener los elementos del formulario por su nombre
+    const nombre = form.elements["nombre"];
+    const email = form.elements["email"];
+    const telefono = form.elements["telefono"];
+    const direccion = form.elements["direccion"];
+    const genero = form.elements["genero"];
+
+    // Agregar un evento "submit" al formulario
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const nombreValue = nombre.value.trim();
+      const emailValue = email.value.trim();
+      const telefonoValue = telefono.value.trim();
+      const direccionValue = direccion.value.trim();
+      const generoValue = genero.value;
+
+      // Validar que los campos obligatorios no estén vacíos
+      if (
+        !nombreValue ||
+        !emailValue ||
+        !telefonoValue ||
+        !direccionValue ||
+        !generoValue
+      ) {
+        alert("Por favor complete todos los campos del formulario");
+        return;
+      }
+
+      // Crear un objeto con los datos del formulario
+      const formData = {
+        nombre: nombreValue,
+        email: emailValue,
+        telefono: telefonoValue,
+        direccion: direccionValue,
+        genero: generoValue,
+      };
+
+      // Enviar el formulario
+      enviarFormulario(formData);
+
+      // Limpiar el formulario después de enviar los datos
+      form.reset();
+    });
+
+    // Función para enviar el formulario
+    function enviarFormulario(formData) {
+      // Aquí puedes hacer lo que necesites con los datos del formulario
+      console.log(formData);
+
+      // Mostrar un mensaje de éxito
+      alert("El formulario se ha enviado con éxito");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Usuarios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/estilos_nosotros.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a class="navbar-brand" href="{% url 'inicio' %}" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'hombres' %}">Hombres</a></li>
+                <li><a href="{% url 'mujeres' %}">Mujeres</a></li>
+                <li><a href="{% url 'ninos' %}">Niños</a></li>
+                <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
+                <li><a href="{% url 'formulario2' %}">Evento Lukatillas</a></li>
+                <li><a href="{% url 'paginaApi' %}">Biblioteca Pokémon</a></li>
+                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="user-list" class="container">
+        {% if user_list %}
+            <h2>Usuarios Registrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in user_list %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h2>No hay registros de usuarios</h2>
+        {% endif %}
+    </section>
+</body>
+</html>

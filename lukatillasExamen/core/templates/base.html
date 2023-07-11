@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Contenido del encabezado -->
+        <nav>
+            <ul>
+                <li><a class="navbar-brand" href="{% url 'inicio' %}" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'hombres' %}">Hombres</a></li>
+                <li><a href="{% url 'mujeres' %}">Mujeres</a></li>
+                <li><a href="{% url 'ninos' %}">Niños</a></li>
+                <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
+                <li><a href="{% url 'formulario2' %}">Evento Lukatillas</a></li>
+                <li><a href="{% url 'paginaApi' %}">Biblioteca Pokémon</a></li>
+                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <!-- Contenido del pie de página -->
+        <p>&copy; {% now "Y" %} Tienda Zapatillas Lukatillas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

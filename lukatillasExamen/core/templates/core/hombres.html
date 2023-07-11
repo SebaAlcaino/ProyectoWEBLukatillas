@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Zapatillas de Hombres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+</head>  
+<body>
+    <header>
+        <nav>
+            <ul> 
+                <li>  
+                    <a class="navbar-brand" href="{% url 'inicio' %}" style="font-size: large">Tienda Zapatillas Lukatillas</a>
+                </li>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'mujeres' %}">Mujeres</a></li>
+                <li><a href="{% url 'ninos' %}">Niños</a></li>
+                <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
+                <li><a href="{% url 'formulario2' %}">Evento Tienda Lukatillas</a></li>
+                <li><a href="{% url 'paginaApi' %}">Biblioteca Pokemon</a></li>
+                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sneaker-section">
+            <h2>Zapatillas de hombres</h2>
+            <div class="sneaker-container">
+                <div class="sneaker-card">
+                    <img src="{% static 'core/img/hombre1.jpg' %}" alt="Sneaker 1" />
+                    <h3>Zapatilla 1</h3>
+                    <p>$87.990</p>
+                </div>
+                <div class="sneaker-card">
+                    <img src="{% static 'core/img/hombre2.jpg' %}" alt="Sneaker 2" />
+                    <h3>Zapatilla 2</h3>
+                    <p>$76.990</p>
+                </div>
+                <div class="sneaker-card">
+                    <img src="{% static 'core/img/hombre3.jpg' %}" alt="Sneaker 3" />
+                    <h3>Zapatilla 3</h3>
+                    <p>$99.990</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3">Información de contacto</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> 777 Avenida Los Pavos, Santiago</p>
+                    <p><i class="fas fa-phone"></i> +56 9 33333333</p>
+                    <p><i class="fas fa-envelope"></i> contacto@lukatillas.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Enlaces útiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                        <li><a href="{% url 'hombres' %}">Zapatillas para Hombres</a></li>
+                        <li><a href="{% url 'mujeres' %}">Zapatillas para Mujeres</a></li>
+                        <li><a href="{% url 'ninos' %}">Zapatillas para Niños</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="logo-container">
+        <img src="{% static 'core/img/logo.png' %}" alt="Logo de mi página web" />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

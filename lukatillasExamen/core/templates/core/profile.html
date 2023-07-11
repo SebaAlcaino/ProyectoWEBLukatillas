@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/estilos_nosotros.css' %}">
+  <style>
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a class="navbar-brand" href="{% url 'inicio' %}" style="font-size: large;">Tienda Zapatillas Lukatillas</a></li>
+        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+        <li><a href="{% url 'hombres' %}">Hombres</a></li>
+        <li><a href="{% url 'mujeres' %}">Mujeres</a></li>
+        <li><a href="{% url 'ninos' %}">Niños</a></li>
+        <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
+        <li><a href="{% url 'formulario2' %}">Evento Lukatillas</a></li>
+        <li><a href="{% url 'paginaApi' %}">Biblioteca Pokémon</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="login" class="container">
+    <div style="text-align: center;">
+      <h1 class="display">Perfil</h1><br>      
+      <form method="POST" id="formulario">
+          {% csrf_token %}
+          <p style="font-size: 18px;">¡Bienvenido(a), {{ user.username }}!</p>
+          <p>Email: {{ user.email }}</p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
